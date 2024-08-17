@@ -105,11 +105,11 @@ function RSA.DescTableBuilder(...)
 	local iterator = 0
 	for i = 1, select('#',...) do
 		local id = select(i,...)
-		if GetSpellInfo(id) then
+		if C_Spell.GetSpellName(id) then
 			iterator = iterator + 1
-			argTable[iterator] = '|cffFFCC00' .. GetSpellInfo(id) .. ':|r '
+			argTable[iterator] = '|cffFFCC00' .. C_Spell.GetSpellName(id) .. ':|r '
 			iterator = iterator + 1
-			argTable[iterator] = '|cffd1d1d1' .. GetSpellDescription(id) .. '|r\n\n'
+			argTable[iterator] = '|cffd1d1d1' .. C_Spell.GetSpellDescription(id) .. '|r\n\n'
 		end
 	end
 	--string.gsub(argTable[#argTable], '[\n]', '')
@@ -117,7 +117,7 @@ function RSA.DescTableBuilder(...)
 end
 
 function RSA.GetSpellInfo(id)
-	local spellInfo = GetSpellInfo(id)
+	local spellInfo = C_Spell.GetSpellName(id)
 	if spellInfo then
 		return spellInfo
 	else
@@ -126,7 +126,7 @@ function RSA.GetSpellInfo(id)
 end
 
 function RSA.GetSpellDescription(id)
-	local spellDescription = GetSpellDescription(id)
+	local spellDescription = C_Spell.GetSpellDescription(id)
 	if spellDescription then
 		return spellDescription
 	else
