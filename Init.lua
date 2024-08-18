@@ -153,7 +153,7 @@ function RSA:OnInitialize()
 	RSA.monitorData[uClass] = RSA.PrepareDataTables(self.db.profile[uClass], uClass)
 
 	-- project-revision
-	self.db.global.version = GetAddOnMetadata("RSA","Version")
+	self.db.global.version = C_AddOns.GetAddOnMetadata("RSA","Version")
 
 	if not RSA.db.global.personalID then
 		RSA.db.global.personalID = RSA.GetPersonalID() --RSA.GetGetMyRandomNumber()

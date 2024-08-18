@@ -269,7 +269,7 @@ local function BaseOptions()
 	local optionsTable = {
 		type = 'group',
 		--name = "RSA [|c5500DBBDRaeli's Spell Announcer|r] r|c5500DBBD" .. RSA.db.global.revision .. '|r',
-		name = "RSA [|c5500DBBDRaeli's Spell Announcer|r] |c5500DBBD" .. GetAddOnMetadata("RSA","Version") .. "|r",
+		name = "RSA [|c5500DBBDRaeli's Spell Announcer|r] |c5500DBBD" .. C_AddOns.GetAddOnMetadata("RSA","Version") .. "|r",
 		order = 0,
 		childGroups = 'tab',
 		args = {
@@ -898,7 +898,7 @@ local function BaseOptions()
 					},
 					Revision = {
 						--name = "|cffFFCC00" .. L["Current Version: %s"]:format("r|r|c5500DBBD" .. RSA.db.global.revision) .. "|r",
-						name = "|cffFFCC00" .. L["Current Version: %s"]:format("|r|c5500DBBD" .. GetAddOnMetadata("RSA","Version")) .. "|r",
+						name = "|cffFFCC00" .. L["Current Version: %s"]:format("|r|c5500DBBD" .. C_AddOns.GetAddOnMetadata("RSA","Version")) .. "|r",
 						type = 'description',
 						order = 0.5,
 						fontSize = 'large',
@@ -986,7 +986,7 @@ local function GetSpellConfigInfo(selected)
 			if IsPlayerSpell(spellTable[i]) then
 				name = RSA.GetSpellInfo(spellTable[i])
 				description = '|c' .. colors['descriptions'] .. RSA.GetSpellDescription(spellTable[i]) .. '|r'
-				icon = select(select('#',GetSpellTexture(spellTable[i])),GetSpellTexture(spellTable[i]))
+				icon = select(select('#',C_Spell.GetSpellTexture(spellTable[i])),C_Spell.GetSpellTexture(spellTable[i]))
 			end
 		end
 	end
@@ -1022,7 +1022,7 @@ local function GetSpellConfigInfo(selected)
 		description = '|c' .. colors['descriptions'] .. RSA.GetSpellDescription(selected.spellID) .. '|r'
 	end
 	if not icon then
-		icon = GetSpellTexture(selected.spellID)
+		icon = C_Spell.GetSpellTexture(selected.spellID)
 	end
 
 	return name,description,icon
